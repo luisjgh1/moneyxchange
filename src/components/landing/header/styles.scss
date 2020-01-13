@@ -1,6 +1,8 @@
+@import "../../../styles/colors.scss";
+
 .header {
   &__container {
-    background-color: #ff4500;
+    background-color: $grey;
     padding: 30px 2%;
     display: flex;
     flex-direction: column;

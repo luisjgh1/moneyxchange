@@ -1,7 +1,9 @@
+@import "../../../styles/colors.scss";
+
 .pretty-link {
   text-decoration: none;
-  color: white;
-  background-color: blue;
+  color: black;
+  background-color: $light-grey;
   padding: 10px;
   border-radius: 5px;
   width: 120px;

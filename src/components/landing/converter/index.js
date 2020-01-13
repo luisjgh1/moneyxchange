@@ -13,12 +13,13 @@ const Converter = ({ amount, result, onChangeAmount, onSubmitAmount }) => (
         onChange={onChangeAmount}
         value={formatNumber(amount)}
         placeholder="EUR"
+        data-testid="amount-field"
       />
       <div className="gutter" />
       <TextField value={result} placeholder="USD" disabled />
     </div>
     <div className="converter__button-container">
-      <Button onClick={onSubmitAmount} text="Calculate" />
+      <Button testid="calculate" onClick={onSubmitAmount} text="Calculate" />
     </div>
   </div>
 );
