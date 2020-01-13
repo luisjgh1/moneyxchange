@@ -1,0 +1,33 @@
+.history {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+
+  .title {
+    position: absolute;
+    left: 18%;
+    font-size: 24px;
+    font-size: bold;
+    text-transform: uppercase;
+  }
+
+  &__summaries-container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 50px;
+  }
+
+  &__currency-summary {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    text-align: center;
+
+    p {
+      font-size: 1rem;
+      margin-top: -10px;
+    }
+  }
+}

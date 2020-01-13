@@ -2,7 +2,8 @@ import types from "./types";
 
 const initialState = {
   amount: "",
-  result: ""
+  result: "",
+  history: {}
 };
 
 const reducer = (state = initialState, action) => {
@@ -11,6 +12,11 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         amount: action.amount
+      };
+    case types.SET_HISTORY:
+      return {
+        ...state,
+        history: action.history
       };
     default:
       return state;
