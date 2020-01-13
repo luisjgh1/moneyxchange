@@ -5,16 +5,18 @@ import { useDispatch, useSelector } from "react-redux";
 import Header from "../../components/landing/header/";
 import Converter from "../../components/landing/converter/";
 import History from "../../components/landing/history/";
+import Footer from "../../components/landing/footer";
 import LandingActions from "../../redux/landing/actions";
-import Rep from "../../lib/api/repositories/conversion-repository";
+import { removeCommas } from "../../lib/utils";
 import "./styles.scss";
 
 const LandingPage = () => {
   const dispatch = useDispatch();
   const [amount, setAmount] = useState("");
-  const history = useSelector(state => state.landing.history);
-
-  Rep.convert("25.5");
+  const [history, result] = useSelector(state => [
+    state.landing.history,
+    state.landing.result
+  ]);
 
   const handleChangeAmount = ({ target: { value } }) => {
     const lastCharacer = value[value.length - 1];
@@ -23,14 +25,14 @@ const LandingPage = () => {
     if (unnecesaryDot) return null;
 
     if (lastCharacer)
-      return value[value.length - 1].match(/^[0-9\.]*$/)
+      return value[value.length - 1].match(/^[0-9.]*$/)
         ? setAmount(value)
         : null;
     else return setAmount(value);
   };
 
   const handleSubmitAmount = () => {
-    dispatch(LandingActions.convert());
+    dispatch(LandingActions.convert(removeCommas(amount)));
   };
 
   useEffect(() => {
@@ -44,8 +46,10 @@ const LandingPage = () => {
         amount={amount}
         onChangeAmount={handleChangeAmount}
         onSubmitAmount={handleSubmitAmount}
+        result={result}
       />
       <History history={history} />
+      <Footer />
     </div>
   );
 };

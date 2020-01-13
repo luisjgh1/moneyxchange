@@ -8,10 +8,10 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case types.SET_AMOUNT:
+    case types.SET_RESULT:
       return {
         ...state,
-        amount: action.amount
+        result: action.result
       };
     case types.SET_HISTORY:
       return {

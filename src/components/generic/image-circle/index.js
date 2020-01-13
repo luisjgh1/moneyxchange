@@ -1,13 +1,19 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 import "./styles.scss";
 
-const ImageCircle = () => (
-  <img
-    alt="as"
-    className="image-circle"
-    src="https://www.gratistodo.com/wp-content/uploads/2016/09/imagenes-de-Spiderman-11.jpg"
-  />
+const ImageCircle = ({ alt, imageSrc, ...props }) => (
+  <img alt={alt} className="image-circle" src={imageSrc} {...props} />
 );
+
+ImageCircle.propTypes = {
+  imageSrc: PropTypes.string.isRequired,
+  alt: PropTypes.string
+};
+
+ImageCircle.defaultProps = {
+  alt: ""
+};
 
 export default ImageCircle;

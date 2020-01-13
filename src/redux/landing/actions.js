@@ -24,9 +24,8 @@ const getHistory = () => {
 const convert = amount => {
   return async dispatch => {
     try {
-      const result = await conversionRepository.convert();
-
-      dispatch(setHistory(result));
+      const { result } = await conversionRepository.convert(amount);
+      dispatch(setResult(result));
     } catch (err) {}
   };
 };

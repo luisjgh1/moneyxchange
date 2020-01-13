@@ -1,5 +1,5 @@
-export const formatNumber = num => {
-  return num[num.length - 1] !== "."
-    ? Number(num.replace(/,/g, "")).toLocaleString()
-    : num;
+export const removeCommas = qty => Number(qty.replace(/,/g, ""));
+
+export const formatNumber = qty => {
+  return qty[qty.length - 1] !== "." ? removeCommas(qty).toLocaleString() : qty;
 };
