@@ -1,12 +1,19 @@
 import React from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-import Input from "./components/generic/text-field";
+import LandingPage from "./pages/landing";
 import "./App.scss";
 
 function App() {
   return (
     <div className="App">
-      <Input />
+      <Router>
+        <Switch>
+          <Route path="/">
+            <LandingPage />
+          </Route>
+        </Switch>
+      </Router>
     </div>
   );
 }

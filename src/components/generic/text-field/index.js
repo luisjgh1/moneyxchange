@@ -3,10 +3,10 @@ import PropTypes from "prop-types";
 
 import "./styles.scss";
 
-const TextField = ({ type }) => {
+const TextField = ({ type, ...props }) => {
   return (
     <div className="input-container">
-      <input placeholder="Algo" type="text" id="name" />
+      <input {...props} type={type} />
     </div>
   );
 };
